@@ -73,7 +73,7 @@ function QuoteTab() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <form onSubmit={handleSubmit} className="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
       <div className="space-y-1 md:col-span-2">
         <label className="text-xs uppercase tracking-wider text-on-surface-variant">Service Type</label>
         <select name="serviceType" value={form.serviceType} onChange={handleChange} className={inputClass}>
@@ -201,7 +201,7 @@ function GeneralInquiryTab() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <form onSubmit={handleSubmit} className="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
       <div className="space-y-1">
         <label className="text-xs uppercase tracking-wider text-on-surface-variant">Full Name</label>
         <input

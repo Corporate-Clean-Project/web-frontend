@@ -53,7 +53,7 @@ export default function Contact() {
               <p className="text-on-surface-variant">Thank you — our team will be in touch shortly.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 hidden">
               <div>
                 <label className={labelClass}>Full Name *</label>
                 <div className="relative">

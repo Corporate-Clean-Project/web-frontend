@@ -69,7 +69,7 @@ export default function About() {
         </ul>
       </div>
 
-      {loading && <p className="text-xs text-on-surface-variant">Loading latest content…</p>}
+      {loading && <p className="hidden text-xs text-on-surface-variant">Loading latest content…</p>}
     </div>
   );
 }
