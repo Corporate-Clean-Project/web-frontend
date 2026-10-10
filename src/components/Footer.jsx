@@ -6,8 +6,8 @@ export default function Footer() {
           <div className="space-y-4">
             <span className="font-display text-lg text-primary">Top Pristine</span>
             <p className="text-sm text-on-surface-variant leading-relaxed">
-              Bespoke architectural craftsmanship, structural prestige, and timeless luxury
-              contracting tailored to discerning estates and commercial landmarks.
+              Elite commercial cleaning, janitorial services, and facility sanitization tailored
+              for corporate headquarters, luxury retail boutiques, and medical facilities.
             </p>
           </div>
           <div className="space-y-3">

@@ -31,8 +31,8 @@ const pillars = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: 'Quality Work',
-    desc: 'Proven structural methods and hand-selected materials to deliver impeccable, lasting results.',
+    title: 'HOSPITAL-GRADE HYGIENE',
+    desc: 'Advanced sanitization protocols using EPA-certified, eco-friendly products for a healthier environment.',
   },
   {
     icon: (
@@ -40,8 +40,8 @@ const pillars = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
     ),
-    title: 'Experienced Pros',
-    desc: 'Skilled artisans and fabrication engineers committed directly to your architectural satisfaction.',
+    title: 'VETTED & INSURED CREWS',
+    desc: 'Background-checked, certified cleaning specialists dedicated to total workplace confidentiality and security.',
   },
   {
     icon: (
@@ -49,8 +49,8 @@ const pillars = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: 'On Time Delivery',
-    desc: 'Rigorous milestone execution, finishing each phase strictly on schedule every single time.',
+    title: 'AFTER-HOURS PRECISION',
+    desc: 'Seamless evening and weekend scheduling that keeps your business running completely uninterrupted.',
   },
   {
     icon: (
@@ -58,35 +58,35 @@ const pillars = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
       </svg>
     ),
-    title: 'Customer Focused',
-    desc: 'Your creative vision matters. We listen with care and build consistently beyond expectations.',
+    title: 'TAILORED CHECKLISTS',
+    desc: 'Customized maintenance schedules tailored specifically to corporate offices, luxury retail, or medical facilities.',
   },
 ];
 
 const processSteps = [
   {
-    id: 'consultation',
+    id: 'inspection',
     number: '01',
-    title: 'Consultation & Vision',
-    desc: 'We begin by understanding your aspirations, assessing the site, and establishing a tailored architectural strategy.',
+    title: 'Site Inspection & Audit',
+    desc: 'We review your square footage, high-touch zones, and security requirements to draft a customized plan.',
   },
   {
-    id: 'design',
+    id: 'protocol',
     number: '02',
-    title: 'Design & Architecture',
-    desc: 'Our master architects draft precise, innovative blueprints that merge aesthetic brilliance with structural integrity.',
+    title: 'Tailored Protocol',
+    desc: 'We design a dedicated janitorial schedule and assign a primary, background-checked crew to your property.',
   },
   {
-    id: 'build',
+    id: 'execution',
     number: '03',
-    title: 'Craftsmanship & Build',
-    desc: 'Skilled artisans and engineers bring the vision to life using premium, hand-selected materials and proven methods.',
+    title: 'Execution & Sanitization',
+    desc: 'Our trained specialists carry out systematic, eco-friendly deep cleaning with meticulous quality control.',
   },
   {
-    id: 'handover',
+    id: 'review',
     number: '04',
-    title: 'Handover & Aftercare',
-    desc: 'A rigorous final inspection guarantees flawless execution before presenting you with your completed bespoke sanctuary.',
+    title: 'Quality Assurance & Review',
+    desc: 'Routine supervisory walkthroughs ensure every square foot consistently reflects peak professional standards.',
   },
 ];
 
@@ -154,9 +154,9 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: '15+ YRS', label: 'Master Guild Craft' },
-  { value: '100%', label: 'On-Schedule Delivery' },
-  { value: 'A+ TIER', label: 'Estate Contracting' },
+  { value: '24/7', label: 'Rapid Response' },
+  { value: '100%', label: 'Satisfaction Guaranteed' },
+  { value: 'A+ TIER', label: 'Certified Janitorial' },
 ];
 
 const sectionLabels = ['Hero', 'Pillars', 'Process', 'Reviews', 'CTA'];
@@ -487,7 +487,7 @@ export default function Home() {
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs text-primary tracking-[0.2em] uppercase font-semibold">
-              Bespoke Architectural Craft
+              Premium Commercial Cleaning & Janitorial
             </span>
           </div>
 
@@ -500,7 +500,7 @@ export default function Home() {
                 transition: 'opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s',
               }}
             >
-              Quality. Precision.
+              Impeccable.
               <br />
               <span
                 className="text-primary italic"
@@ -511,7 +511,7 @@ export default function Home() {
                   display: 'inline-block',
                 }}
               >
-                Pristine Results.
+                Quality. Pristine Spaces.
               </span>
             </h1>
 
@@ -523,8 +523,9 @@ export default function Home() {
                 transition: 'opacity 0.7s ease 0.7s, transform 0.7s ease 0.7s',
               }}
             >
-              Top Pristine delivers high-quality architectural solutions with uncompromising
-              attention to detail you can trust. We take pride in every creation, big or small.
+              Pristine Building Maintenance Inc. delivers white-glove commercial cleaning and property maintenance
+              with uncompromising hygiene standards you can trust. Elevate your workplace image with tailored,
+              eco-conscious cleaning routines.
             </p>
 
             <div
@@ -603,14 +604,14 @@ export default function Home() {
         >
           <div>
             <p className="text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-3">
-              Core Principles
+              Our Standards
             </p>
             <h2 className="font-display text-4xl lg:text-5xl text-on-surface">
-              Foundations of Luxury
+              The Gold Standard in Facility Hygiene
             </h2>
           </div>
           <p className="text-sm text-on-surface-variant max-w-sm leading-relaxed lg:text-right">
-            Our unwavering commitment to craftsmanship, precision, and architectural elegance defines every Top Pristine creation.
+            Every service is built around reliability, hygiene, and a spotless environment that reflects your brand at its best.
           </p>
         </div>
 
@@ -661,7 +662,7 @@ export default function Home() {
             </h2>
           </div>
           <p className="text-sm text-on-surface-variant max-w-sm leading-relaxed lg:text-right">
-            A meticulous, step-by-step approach ensuring every architectural detail meets our uncompromising standards of luxury.
+            A meticulous, step-by-step process designed to deliver consistent cleanliness, compliance, and confidence across every space.
           </p>
         </div>
 

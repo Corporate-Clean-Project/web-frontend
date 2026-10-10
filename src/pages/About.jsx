@@ -119,6 +119,12 @@ const portfolioItems = [
   },
 ];
 
+const stats = [
+  { value: '24/7', label: 'Rapid Response' },
+  { value: '100%', label: 'Satisfaction Guaranteed' },
+  { value: 'A+ TIER', label: 'Certified Janitorial' },
+];
+
 export default function About() {
   const [heroRef, heroVisible] = useReveal();
   const [journeyRef, journeyVisible] = useReveal();
@@ -166,18 +172,12 @@ export default function About() {
             </div>
 
             <div className="flex flex-wrap gap-10 pt-8 border-t border-surface-container-highest/60">
-              <div>
-                <p className="font-display text-4xl text-primary mb-2">15+</p>
-                <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Years Experience</p>
+              {stats.map((i)=>(
+                <div>
+                <p className="font-display text-4xl text-primary mb-2">{i.value}</p>
+                <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">{i.label}</p>
               </div>
-              <div>
-                <p className="font-display text-4xl text-primary mb-2">180+</p>
-                <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Completed Projects</p>
-              </div>
-              <div>
-                <p className="font-display text-4xl text-primary mb-2">100%</p>
-                <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Principal Oversight</p>
-              </div>
+              ))}
             </div>
           </div>
 
