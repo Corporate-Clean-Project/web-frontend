@@ -24,53 +24,6 @@ function useReveal(options = {}) {
   return [ref, visible];
 }
 
-const milestones = [
-  {
-    year: '2010',
-    title: 'FOUNDATION',
-    subtitle: 'Bespoke Framing & Joinery',
-    desc: 'Began as an exclusive operations millwork and custom cabinetry setup, delivering artisan-focused joinery to high-end residential clients.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.315 48.315 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-      </svg>
-    ),
-  },
-  {
-    year: '2015',
-    title: 'EXPANSION',
-    subtitle: 'Stone, Marble & Metals Division',
-    desc: 'Expanded vertically to provide bespoke stone masonry, exotic marble sourcing, and specialty custom metals for complex, multi-sensory residential environments.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
-      </svg>
-    ),
-  },
-  {
-    year: '2018',
-    title: 'PRACTICE',
-    subtitle: 'Architectural Project Foundation',
-    desc: 'Formalized construction operations towards full-scale Master Builder framework, assuming principal contractor duties for estates, manors, and luxury residences.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.315 48.315 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-      </svg>
-    ),
-  },
-  {
-    year: '2024',
-    title: 'NEXT GEN',
-    subtitle: 'Next-Generation Design & Build',
-    desc: 'Unifying in-house design capabilities with established construction mastery, setting a new paradigm for end-to-end luxury execution.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-      </svg>
-    ),
-  },
-];
-
 const portfolioItems = [
   {
     id: 'noir-marble',
@@ -127,7 +80,7 @@ const stats = [
 
 export default function About() {
   const [heroRef, heroVisible] = useReveal();
-  const [journeyRef, journeyVisible] = useReveal();
+  const [commitmentRef, commitmentVisible] = useReveal();
   const [portfolioRef, portfolioVisible] = useReveal();
   const [ctaRef, ctaVisible] = useReveal();
   const [activeTab, setActiveTab] = useState('All Projects');
@@ -201,76 +154,68 @@ export default function About() {
         </div>
       </section>
 
-      <section ref={journeyRef} className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 w-full">
+      <section ref={commitmentRef} className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 w-full">
         <div
-          className="mb-16"
+          className="max-w-3xl mb-12"
           style={{
-            opacity: journeyVisible ? 1 : 0,
-            transform: journeyVisible ? 'translateY(0)' : 'translateY(30px)',
+            opacity: commitmentVisible ? 1 : 0,
+            transform: commitmentVisible ? 'translateY(0)' : 'translateY(30px)',
             transition: 'opacity 0.7s ease, transform 0.7s ease',
           }}
         >
           <div className="inline-flex items-center gap-3 mb-4">
             <span className="w-8 h-px bg-primary" />
             <p className="text-xs text-primary tracking-[0.25em] uppercase font-semibold">
-              Chronicles of Excellence
+              Our Commitment
             </p>
           </div>
           <h2 className="font-display text-4xl lg:text-5xl text-on-surface">
-            Our Journey & Milestones
+            A Fresh Start, Focused on Your Facility
           </h2>
+          <p className="text-sm text-on-surface-variant leading-relaxed mt-5">
+            As a new company, we are focused on earning your trust through attentive service, cleaning plans shaped around your needs, and clear communication from the start.
+          </p>
         </div>
 
-        <div className="relative">
-          {/* Horizontal Line for Desktop Timeline */}
-          <div className="hidden lg:block absolute top-6 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-surface-container-highest to-transparent z-0" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {milestones.map((m, i) => (
-              <div
-                key={m.year}
-                className="relative group pt-0 lg:pt-16 flex flex-col h-full"
-                style={{
-                  opacity: journeyVisible ? 1 : 0,
-                  transform: journeyVisible ? 'translateY(0)' : 'translateY(40px)',
-                  transition: `opacity 0.7s ease ${i * 150}ms, transform 0.7s ease ${i * 150}ms`,
-                }}
-              >
-                {/* Timeline Node (Desktop only) */}
-                <div className="hidden lg:flex absolute top-0 left-1/2 -translate-x-1/2 flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary border border-surface-container-highest group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(242,190,113,0.3)] group-hover:scale-110 transition-all duration-500 z-10">
-                    {m.icon}
-                  </div>
-                  <div className="w-px h-4 bg-surface-container-highest group-hover:bg-primary transition-colors duration-500" />
-                </div>
-
-                {/* Card Design */}
-                <div className="relative p-8 rounded-2xl bg-surface-container/60 border border-surface-container-highest hover:border-primary/40 transition-all duration-500 flex flex-col h-full w-full">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl" />
-
-                  {/* Icon for Mobile/Tablet */}
-                  <div className="lg:hidden w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                    {m.icon}
-                  </div>
-
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <h3 className="font-display text-3xl text-on-surface">{m.year}</h3>
-                    <span className="text-[10px] text-primary tracking-[0.2em] uppercase font-bold">{m.title}</span>
-                  </div>
-
-                  <h4 className="text-sm font-semibold text-on-surface mb-4">{m.subtitle}</h4>
-                  <p className="text-sm text-on-surface-variant leading-relaxed flex-grow">{m.desc}</p>
-
-                  <div className="mt-8 pt-4 border-t border-surface-container-highest flex justify-between items-center text-[10px] uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">
-                    <span>View Milestone</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-3 h-3">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Cleaning That Fits Your Needs',
+              description: 'Choose from office cleaning, janitorial services, deep sanitization, post-construction cleaning, and floor care.',
+            },
+            {
+              title: 'A Plan for Your Schedule',
+              description: 'We work with you to find a cleaning frequency and start date that suit your facility and daily operations.',
+            },
+            {
+              title: 'Responsive Support',
+              description: 'Our team aims to respond to inquiries within 24 business hours. 24/7 emergency response is available for contracted clients.',
+            },
+          ].map((commitment, index) => (
+            <article
+              key={commitment.title}
+              className="group p-8 rounded-2xl bg-surface-container/60 border border-surface-container-highest hover:border-primary/40 hover:bg-surface-container transition-all duration-300"
+              style={{
+                opacity: commitmentVisible ? 1 : 0,
+                transform: commitmentVisible ? 'translateY(0)' : 'translateY(30px)',
+                transition: `opacity 0.7s ease ${index * 150}ms, transform 0.7s ease ${index * 150}ms`,
+              }}
+            >
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-xs text-primary tracking-[0.15em] font-bold group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">0{index + 1}</span>
+              <h3 className="font-display text-2xl text-on-surface mt-5 mb-3">{commitment.title}</h3>
+              <p className="text-sm text-on-surface-variant leading-relaxed">{commitment.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-10 pt-8 border-t border-surface-container-highest flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+          <p className="text-sm text-on-surface-variant">Looking for a cleaning plan that works for your facility?</p>
+          <Link
+            to="/inquiries-and-quote"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-lg bg-primary px-6 py-4 text-xs uppercase tracking-[0.15em] font-bold text-on-primary shadow-lg shadow-primary/10 hover:bg-secondary hover:-translate-y-0.5 hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
+          >
+            Discuss Your Cleaning Needs
+            <span aria-hidden="true" className="text-base">→</span>
+          </Link>
         </div>
       </section>
 
