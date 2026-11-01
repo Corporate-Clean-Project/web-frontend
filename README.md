@@ -1,6 +1,6 @@
 # web-frontend
 
-Public marketing website for **Top Pristine Luxury Craft** — React + Vite + Tailwind CSS,
+Public marketing website for **Pristine Luxury Craft** — React + Vite + Tailwind CSS,
 consuming `common-backend`'s REST API for CMS content and inquiry/quote submissions.
 
 ## Pages

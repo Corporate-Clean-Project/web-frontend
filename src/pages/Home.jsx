@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import useContentStore from '../stores/contentStore';
 
 function useReveal(options = {}) {
   const ref = useRef(null);
@@ -129,7 +130,7 @@ const portfolioItems = [
 const testimonials = [
   {
     quote:
-      '"Top Pristine handled our penthouse redesign with a level of precision I didn\'t believe existed in modern residential contracting. Their crew treated our home like a gallery pavilion — punctual, respectful, and relentlessly attentive."',
+      '"Pristine handled our penthouse redesign with a level of precision I didn\'t believe existed in modern residential contracting. Their crew treated our home like a gallery pavilion — punctual, respectful, and relentlessly attentive."',
     author: 'Marcus Grace',
     position: 'Principal Architect & Residential Director',
   },
@@ -141,7 +142,7 @@ const testimonials = [
   },
   {
     quote:
-      '"We engaged Top Pristine for our commercial flagship interior and the result was nothing short of iconic. Structural precision, premium material selection, and a project delivery that came in ahead of schedule."',
+      '"We engaged Pristine for our commercial flagship interior and the result was nothing short of iconic. Structural precision, premium material selection, and a project delivery that came in ahead of schedule."',
     author: 'Raymond Alderton',
     position: 'CEO · Alderton Holdings Group',
   },
@@ -236,10 +237,15 @@ function ScrollProgressBar({ sectionRefs }) {
   );
 }
 
-function TestimonialCarousel({ sectionRef, visible }) {
+function TestimonialCarousel({ sectionRef, visible, reviews }) {
+  const testimonialsToShow = reviews.length ? reviews : testimonials;
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
   const timerRef = useRef(null);
+
+  useEffect(() => {
+    setActive(0);
+  }, [testimonialsToShow]);
 
   const goTo = useCallback((index) => {
     setDirection(index > active ? 1 : -1);
@@ -247,26 +253,31 @@ function TestimonialCarousel({ sectionRef, visible }) {
   }, [active]);
 
   const next = useCallback(() => {
+    if (testimonialsToShow.length < 2) return;
     setDirection(1);
-    setActive((prev) => (prev + 1) % testimonials.length);
-  }, []);
+    setActive((prev) => (prev + 1) % testimonialsToShow.length);
+  }, [testimonialsToShow.length]);
 
   const prev = useCallback(() => {
+    if (testimonialsToShow.length < 2) return;
     setDirection(-1);
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, []);
+    setActive((prev) => (prev - 1 + testimonialsToShow.length) % testimonialsToShow.length);
+  }, [testimonialsToShow.length]);
 
   useEffect(() => {
+    if (testimonialsToShow.length < 2) return undefined;
     timerRef.current = setInterval(next, 5000);
     return () => clearInterval(timerRef.current);
-  }, [next]);
+  }, [next, testimonialsToShow.length]);
 
   const resetTimer = () => {
+    if (testimonialsToShow.length < 2) return;
     clearInterval(timerRef.current);
     timerRef.current = setInterval(next, 5000);
   };
 
-  const t = testimonials[active];
+  const t = testimonialsToShow[active] || testimonialsToShow[0];
+  if (!t) return null;
 
   return (
     <section ref={sectionRef} className="relative py-28 overflow-hidden">
@@ -291,7 +302,7 @@ function TestimonialCarousel({ sectionRef, visible }) {
           </h2>
         </div>
         <p className="text-sm text-on-surface-variant max-w-sm leading-relaxed lg:text-right">
-          Hear from our esteemed clients who have experienced the unparalleled luxury and precision of a Top Pristine build.
+          Hear from our esteemed clients who have experienced the unparalleled luxury and precision of a Pristine build.
         </p>
       </div>
 
@@ -305,7 +316,7 @@ function TestimonialCarousel({ sectionRef, visible }) {
           }}
         >
           {[...Array(5)].map((_, i) => (
-            <svg key={i} viewBox="0 0 20 20" className="w-5 h-5 fill-primary" xmlns="http://www.w3.org/2000/svg">
+            <svg key={i} viewBox="0 0 20 20" className={`w-5 h-5 ${i < (Number(t.rating) || 5) ? 'fill-primary' : 'fill-surface-container-highest'}`} xmlns="http://www.w3.org/2000/svg">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
           ))}
@@ -343,7 +354,7 @@ function TestimonialCarousel({ sectionRef, visible }) {
           </p>
         </div>
 
-        <div className="flex items-center justify-center gap-6 mt-10">
+        {testimonialsToShow.length > 1 && <div className="flex items-center justify-center gap-6 mt-10">
           <button
             onClick={() => { prev(); resetTimer(); }}
             className="w-10 h-10 rounded-full border border-surface-container-highest/60 flex items-center justify-center text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all duration-300"
@@ -355,7 +366,7 @@ function TestimonialCarousel({ sectionRef, visible }) {
           </button>
 
           <div className="flex items-center gap-2">
-            {testimonials.map((_, i) => (
+            {testimonialsToShow.map((_, i) => (
               <button
                 key={i}
                 onClick={() => { goTo(i); resetTimer(); }}
@@ -377,7 +388,7 @@ function TestimonialCarousel({ sectionRef, visible }) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </button>
-        </div>
+        </div>}
       </div>
     </section>
   );
@@ -398,7 +409,7 @@ function ProcessStepItem({ step, i }) {
       }}
     >
       {/* Timeline Dot/Number Node */}
-      <div 
+      <div
         className="absolute left-[28px] md:left-1/2 w-14 h-14 bg-surface rounded-full border border-primary/40 flex items-center justify-center -translate-x-1/2 z-10 shadow-[0_0_15px_rgba(242,190,113,0.15)] group transition-all duration-700"
         style={{
           borderColor: visible ? 'rgba(242, 190, 113, 0.8)' : 'rgba(242, 190, 113, 0.2)',
@@ -430,6 +441,16 @@ function ProcessStepItem({ step, i }) {
 
 
 export default function Home() {
+  const { fetchContent, contentByPage } = useContentStore();
+  const savedReviews = contentByPage.reviews?.reviews;
+  const reviews = useMemo(() => Array.isArray(savedReviews)
+    ? savedReviews.map((review) => ({
+      quote: review.quote,
+      author: review.author,
+      position: review.position,
+      rating: review.rating,
+    })).filter((review) => review.quote && review.author)
+    : [], [savedReviews]);
   const heroRef = useRef(null);
   const [pillarsRef, pillarsVisible] = useReveal();
   const [portfolioRef, portfolioVisible] = useReveal();
@@ -455,6 +476,10 @@ export default function Home() {
     const t = setTimeout(() => setHeroVisible(true), 100);
     return () => clearTimeout(t);
   }, []);
+
+  useEffect(() => {
+    fetchContent('reviews');
+  }, [fetchContent]);
 
   return (
     <div className="flex flex-col w-full overflow-x-hidden">
@@ -669,9 +694,9 @@ export default function Home() {
         <div className="relative mt-16">
           {/* Vertical Line Track */}
           <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-px bg-surface-container-highest/60 -translate-x-1/2" />
-          
+
           {/* Vertical Line Fill */}
-          <div 
+          <div
             className="absolute left-[28px] md:left-1/2 top-0 w-px bg-primary -translate-x-1/2"
             style={{
               height: portfolioVisible ? '100%' : '0%',
@@ -803,7 +828,7 @@ export default function Home() {
   </div>
 </section> */}
 
-      <TestimonialCarousel sectionRef={combinedTestimonialRef} visible={testimonialVisible} />
+      <TestimonialCarousel sectionRef={combinedTestimonialRef} visible={testimonialVisible} reviews={reviews} />
 
       <section
         ref={combinedCtaRef}
@@ -821,7 +846,7 @@ export default function Home() {
           <div className="absolute -right-10 -bottom-20 text-[20rem] font-display font-bold text-primary opacity-5 select-none pointer-events-none tracking-tighter leading-none">
             TP
           </div>
-          
+
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
 
@@ -829,7 +854,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-3">
               <span className="w-8 h-px bg-primary" />
               <p className="text-xs text-primary tracking-[0.3em] uppercase font-semibold">
-                Experience Top Pristine
+                Experience Pristine
               </p>
             </div>
             <h3 className="font-display text-3xl lg:text-4xl text-on-surface leading-tight">
@@ -839,7 +864,7 @@ export default function Home() {
               Join our exclusive portfolio of luxury builds. Schedule a private master assessment and let our artisans craft your bespoke architectural legacy today.
             </p>
           </div>
-          
+
           <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 shrink-0">
             <Link
               to="/inquiries-and-quote"

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { submitInquiry, submitQuoteRequest } from '../api/inquiries';
+import useInquiryStore from '../stores/inquiryStore';
 
 const SERVICES = [
   'Commercial Office Cleaning',
@@ -19,6 +19,7 @@ const inputClass =
 const labelClass = 'block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2';
 
 function QuoteTab() {
+  const submitQuoteRequest = useInquiryStore((state) => state.submitQuoteRequest);
   const [form, setForm] = useState({
     contactName: '',
     companyName: '',
@@ -138,6 +139,7 @@ function QuoteTab() {
 }
 
 function GeneralInquiryTab() {
+  const submitInquiry = useInquiryStore((state) => state.submitInquiry);
   const [form, setForm] = useState({
     fullName: '',
     companyName: '',

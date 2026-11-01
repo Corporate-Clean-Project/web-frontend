@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { submitInquiry } from '../api/inquiries';
+import useInquiryStore from '../stores/inquiryStore';
+import { sendContactEmail } from '../lib/emailjs';
 
 const inputClass =
   'w-full bg-[#101419] border-none rounded-md px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 focus:ring-1 focus:ring-primary focus:outline-none transition-all';
@@ -17,6 +18,7 @@ const svgIconProps = {
 };
 
 export default function Contact() {
+  const submitInquiry = useInquiryStore((state) => state.submitInquiry);
   const [form, setForm] = useState({
     fullName: '',
     companyName: '',
@@ -27,6 +29,7 @@ export default function Contact() {
   });
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
@@ -34,8 +37,14 @@ export default function Contact() {
     e.preventDefault();
     setStatus('submitting');
     setError('');
+    setNotice('');
     try {
       await submitInquiry(form);
+      try {
+        await sendContactEmail(form);
+      } catch (emailError) {
+        setNotice(`Your inquiry was saved, but the email notification could not be sent: ${emailError.message}`);
+      }
       setStatus('success');
     } catch (err) {
       setError(err?.response?.data?.message || 'Something went wrong. Please try again.');
@@ -72,6 +81,7 @@ export default function Contact() {
             <div className="bg-[#101419] rounded-xl p-10 text-center space-y-3 border border-surface-container-highest flex-grow flex flex-col items-center justify-center">
               <h3 className="font-display text-3xl text-primary">Message Sent</h3>
               <p className="text-sm text-on-surface-variant leading-relaxed">Thank you — our team will respond within 24 business hours.</p>
+              {notice && <p className="text-sm text-amber-400" role="status">{notice}</p>}
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 flex-grow flex flex-col">
