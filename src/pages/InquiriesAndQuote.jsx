@@ -62,7 +62,7 @@ function QuoteTab() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-[#1c2025] rounded-xl p-8 lg:p-12 shadow-2xl border border-surface-container-highest/60 flex flex-col">
+    <form onSubmit={handleSubmit} className="bg-[#1c2025] rounded-xl p-5 sm:p-8 lg:p-12 shadow-2xl border border-surface-container-highest/60 flex flex-col">
       <div className="mb-10">
         <span className="text-[10px] text-primary tracking-[0.2em] uppercase font-bold block mb-2">Tailored Cleaning Proposal</span>
         <h2 className="font-display text-2xl lg:text-3xl text-on-surface">REQUEST A CLEANING QUOTE</h2>
@@ -178,7 +178,7 @@ function GeneralInquiryTab() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-[#1c2025] rounded-xl p-8 lg:p-12 shadow-2xl border border-surface-container-highest/60 flex flex-col">
+    <form onSubmit={handleSubmit} className="bg-[#1c2025] rounded-xl p-5 sm:p-8 lg:p-12 shadow-2xl border border-surface-container-highest/60 flex flex-col">
       <div className="mb-10">
         <span className="text-[10px] text-primary tracking-[0.2em] uppercase font-bold block mb-2">Contact Our Team</span>
         <h2 className="font-display text-2xl lg:text-3xl text-on-surface">SEND AN INQUIRY</h2>
@@ -235,7 +235,7 @@ export default function InquiriesAndQuote() {
   const [tab, setTab] = useState('inquiry');
 
   return (
-    <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 space-y-10 sm:space-y-12">
       <div className="text-center space-y-4 max-w-2xl mx-auto">
         <div className="inline-flex items-center justify-center gap-4 mb-2">
           <span className="w-10 h-px bg-surface-container-highest" />
@@ -248,12 +248,12 @@ export default function InquiriesAndQuote() {
         </p>
       </div>
 
-      <div className="flex justify-center gap-3 mb-10">
+      <div className="flex w-full max-w-md mx-auto justify-center gap-2 sm:gap-3 mb-10">
         <button
           type="button"
           onClick={() => setTab('inquiry')}
           aria-pressed={tab === 'inquiry'}
-          className={`px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold transition-all ${tab === 'inquiry' ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:text-primary'}`}
+          className={`flex-1 min-w-0 px-3 sm:px-8 py-3 rounded-full text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-bold transition-all ${tab === 'inquiry' ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:text-primary'}`}
         >
           General Inquiry
         </button>
@@ -261,7 +261,7 @@ export default function InquiriesAndQuote() {
           type="button"
           onClick={() => setTab('quote')}
           aria-pressed={tab === 'quote'}
-          className={`px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold transition-all ${tab === 'quote' ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:text-primary'}`}
+          className={`flex-1 min-w-0 px-3 sm:px-8 py-3 rounded-full text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-bold transition-all ${tab === 'quote' ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:text-primary'}`}
         >
           Request a Quote
         </button>

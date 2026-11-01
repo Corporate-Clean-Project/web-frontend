@@ -56,22 +56,22 @@ export default function Contact() {
   const locationUrl = 'https://share.google/fBDK3nkxARbw5EqYS';
 
   return (
-    <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
       {/* Header */}
       <div className="text-center space-y-4 max-w-2xl mx-auto mb-16">
         <div className="inline-flex items-center justify-center bg-surface-container/50 border border-surface-container-highest px-4 py-1.5 rounded-full mb-2">
            <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
            <span className="text-[10px] text-primary tracking-[0.2em] uppercase font-bold">Contact Pristine Building Maintenance</span>
         </div>
-        <h1 className="font-display text-4xl lg:text-5xl tracking-tight text-on-surface">Get in Touch With Our Cleanliness Experts</h1>
+        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight text-on-surface">Get in Touch With Our Cleanliness Experts</h1>
         <p className="text-sm text-on-surface-variant leading-relaxed">
           Have a question about our commercial cleaning packages or need a tailored facility hygiene plan? Fill out the form below, and our team will respond within 24 business hours. For urgent facility requests, please call us directly.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] gap-6 sm:gap-8">
         {/* Left Form Section */}
-        <div className="bg-[#1c2025] rounded-xl p-8 lg:p-12 border border-surface-container-highest/60 shadow-2xl flex flex-col relative h-full">
+        <div className="min-w-0 bg-[#1c2025] rounded-xl p-5 sm:p-8 lg:p-12 border border-surface-container-highest/60 shadow-2xl flex flex-col relative h-full">
           <div className="mb-10">
             <span className="text-[10px] text-primary tracking-[0.2em] uppercase font-bold block mb-2">Contact Form</span>
             <h2 className="font-display text-2xl lg:text-3xl text-on-surface">Send Us a Message</h2>
@@ -218,7 +218,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-[9px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">General Inquiries</h4>
-                  <a href="mailto:info@pristinebuildingmaintenance.com" className="text-sm font-bold text-on-surface mb-0.5 hover:text-primary">info@pristinebuildingmaintenance.com</a>
+                  <a href="mailto:info@pristinebuildingmaintenance.com" className="block break-all text-sm font-bold text-on-surface mb-0.5 hover:text-primary">info@pristinebuildingmaintenance.com</a>
                   <p className="text-[10px] text-on-surface-variant/70">Questions, service inquiries, and quote requests</p>
                 </div>
               </div>

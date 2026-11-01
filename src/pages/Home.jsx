@@ -306,7 +306,7 @@ function TestimonialCarousel({ sectionRef, visible, reviews }) {
         </p>
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
         <div
           className="flex justify-center gap-1.5 mb-10"
           style={{
@@ -323,7 +323,7 @@ function TestimonialCarousel({ sectionRef, visible, reviews }) {
         </div>
 
         <div
-          className="relative min-h-[220px] lg:min-h-[200px]"
+          className="relative min-h-[180px] sm:min-h-[220px] lg:min-h-[200px]"
           style={{
             opacity: visible ? 1 : 0,
             transition: 'opacity 0.7s ease 0.15s',
@@ -331,7 +331,7 @@ function TestimonialCarousel({ sectionRef, visible, reviews }) {
         >
           <blockquote
             key={active}
-            className="font-display text-2xl lg:text-3xl xl:text-4xl text-on-surface leading-snug italic mb-10 animate-testimonial-in"
+            className="font-display text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-on-surface leading-snug italic mb-10 animate-testimonial-in"
           >
             {t.quote}
           </blockquote>
@@ -485,7 +485,7 @@ export default function Home() {
     <div className="flex flex-col w-full overflow-x-hidden">
       <ScrollProgressBar sectionRefs={sectionRefs} />
 
-      <section ref={heroRef} className="relative w-full -mt-20 min-h-screen flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative w-full -mt-20 md:-mt-24 min-h-screen flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/hero_interior.png)' }}
@@ -501,9 +501,9 @@ export default function Home() {
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24 w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-32 sm:pt-36 pb-20 sm:pb-24 w-full">
           <div
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/30 bg-surface-container-low/60 backdrop-blur-sm mb-8"
+            className="inline-flex max-w-full items-center gap-2.5 px-3 sm:px-4 py-2 rounded-full border border-primary/30 bg-surface-container-low/60 backdrop-blur-sm mb-8"
             style={{
               opacity: heroVisible ? 1 : 0,
               transform: heroVisible ? 'translateY(0)' : 'translateY(-16px)',
@@ -511,14 +511,14 @@ export default function Home() {
             }}
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs text-primary tracking-[0.2em] uppercase font-semibold">
+            <span className="text-[10px] sm:text-xs text-primary tracking-[0.12em] sm:tracking-[0.2em] uppercase font-semibold">
               Premium Commercial Cleaning & Janitorial
             </span>
           </div>
 
           <div className="max-w-2xl space-y-6">
             <h1
-              className="font-display text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight leading-none"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight leading-[1.05]"
               style={{
                 opacity: heroVisible ? 1 : 0,
                 transform: heroVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -554,7 +554,7 @@ export default function Home() {
             </p>
 
             <div
-              className="flex flex-wrap items-center gap-5 pt-2"
+              className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-5 pt-2"
               style={{
                 opacity: heroVisible ? 1 : 0,
                 transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -564,7 +564,7 @@ export default function Home() {
               <Link
                 to="/inquiries-and-quote"
                 id="hero-cta-quote"
-                className="group relative px-8 py-4 rounded-full bg-primary text-on-primary font-bold tracking-wider uppercase overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(242,190,113,0.4)] hover:scale-105"
+                className="group relative inline-flex justify-center px-6 sm:px-8 py-4 rounded-full bg-primary text-on-primary font-bold tracking-wider uppercase overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(242,190,113,0.4)] hover:scale-105"
               >
                 <span className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
                 Get a Quote
@@ -572,14 +572,14 @@ export default function Home() {
               <Link
                 to="/contact-us"
                 id="hero-cta-contact"
-                className="px-8 py-4 rounded-full border border-surface-container-highest bg-surface-container/40 backdrop-blur-sm text-on-surface font-semibold tracking-wider uppercase hover:border-primary/50 hover:bg-surface-container-high/60 transition-all duration-300"
+                className="inline-flex justify-center px-6 sm:px-8 py-4 rounded-full border border-surface-container-highest bg-surface-container/40 backdrop-blur-sm text-on-surface font-semibold tracking-wider uppercase hover:border-primary/50 hover:bg-surface-container-high/60 transition-all duration-300"
               >
                 Contact Us
               </Link>
             </div>
 
             <div
-              className="grid grid-cols-3 gap-6 pt-5 pb-10 max-w-lg border-t border-surface-container-highest/60"
+              className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 pt-5 pb-10 max-w-lg border-t border-surface-container-highest/60"
               style={{
                 opacity: heroVisible ? 1 : 0,
                 transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -589,6 +589,7 @@ export default function Home() {
               {stats.map((s, i) => (
                 <div
                   key={s.label}
+                  className="min-w-0"
                   style={{
                     opacity: heroVisible ? 1 : 0,
                     transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -596,7 +597,7 @@ export default function Home() {
                   }}
                 >
                   <p className="font-display text-xl lg:text-2xl text-primary">{s.value}</p>
-                  <p className="text-xs text-on-surface-variant mt-1 tracking-wide">{s.label}</p>
+                  <p className="text-xs leading-snug text-on-surface-variant mt-1 tracking-wide break-words">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -647,9 +648,7 @@ export default function Home() {
               className="group relative bg-surface-container/80 backdrop-blur-md border border-surface-container-highest/60 p-7 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:border-primary/30 hover:shadow-[0_8px_40px_rgba(242,190,113,0.12)] transition-all duration-500 overflow-hidden"
               style={{
                 opacity: pillarsVisible ? 1 : 0,
-                transform: pillarsVisible
-                  ? `translateY(${i % 2 !== 0 ? '24px' : '0'})`
-                  : 'translateY(40px)',
+                transform: pillarsVisible ? 'translateY(0)' : 'translateY(40px)',
                 transition: `opacity 0.7s ease ${i * 120}ms, transform 0.7s ease ${i * 120}ms`,
               }}
             >
@@ -835,7 +834,7 @@ export default function Home() {
         className="max-w-7xl mx-auto px-6 lg:px-12 py-24 w-full"
       >
         <div
-          className="relative flex flex-col md:flex-row items-center justify-between gap-12 p-12 lg:p-16 rounded-3xl bg-surface-container-high/80 backdrop-blur-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-primary/20"
+          className="relative flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12 p-6 sm:p-12 lg:p-16 rounded-3xl bg-surface-container-high/80 backdrop-blur-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-primary/20"
           style={{
             opacity: ctaVisible ? 1 : 0,
             transform: ctaVisible ? 'translateY(0)' : 'translateY(40px)',
@@ -869,7 +868,7 @@ export default function Home() {
             <Link
               to="/inquiries-and-quote"
               id="cta-strip-quote"
-              className="group relative px-10 py-5 rounded-full bg-primary text-on-primary font-bold uppercase tracking-[0.15em] text-sm hover:shadow-[0_0_40px_rgba(242,190,113,0.5)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+              className="group relative inline-flex w-full sm:w-auto justify-center px-6 sm:px-10 py-5 rounded-full bg-primary text-on-primary font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-xs sm:text-sm hover:shadow-[0_0_40px_rgba(242,190,113,0.5)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
             >
               <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12" />
               Start Your Project

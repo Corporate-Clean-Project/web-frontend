@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-sm text-primary tracking-widest uppercase font-semibold">Contact</h4>
             <a href="tel:+16047355763" className="block text-sm text-on-surface-variant hover:text-primary">+1 (604) 735-5763</a>
-            <a href="mailto:info@pristinebuildingmaintenance.com" className="block text-sm text-on-surface-variant hover:text-primary">info@pristinebuildingmaintenance.com</a>
+            <a href="mailto:info@pristinebuildingmaintenance.com" className="block break-all text-sm text-on-surface-variant hover:text-primary">info@pristinebuildingmaintenance.com</a>
           </div>
           <div className="space-y-3">
             <h4 className="text-sm text-primary tracking-widest uppercase font-semibold">Working Hours</h4>

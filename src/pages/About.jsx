@@ -166,7 +166,7 @@ export default function About() {
       {contentError && <p className="mx-auto mt-4 max-w-7xl px-6 text-xs text-amber-500">{contentError}</p>}
       {/* Hero Section */}
       <section ref={heroRef} className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 w-full">
-        <div className="flex flex-col-reverse lg:flex-row gap-16 lg:gap-24 items-center">
+        <div className="flex flex-col-reverse lg:flex-row gap-10 sm:gap-16 lg:gap-24 items-center">
           {/* Left: Content */}
           <div
             className="w-full lg:w-1/2 space-y-12"
@@ -183,7 +183,7 @@ export default function About() {
                   {content.founderTitle || 'The Pristine Legacy'}
                 </span>
               </div>
-              <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl text-on-surface leading-[1.15]">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-on-surface leading-[1.15]">
                 {content.founderName || 'Pioneering the Pinnacle of Bespoke Built Environments'}
               </h1>
             </div>
@@ -202,7 +202,7 @@ export default function About() {
               )}
             </div>
 
-            {stats.length > 0 && <div className="flex flex-wrap gap-10 pt-8 border-t border-surface-container-highest/60">
+            {stats.length > 0 && <div className="flex flex-wrap gap-6 sm:gap-10 pt-8 border-t border-surface-container-highest/60">
               {stats.map((i, index) => (
                 <div key={`${i.value}-${index}`}>
                   <p className="font-display text-4xl text-primary mb-2">{i.value}</p>
@@ -288,11 +288,11 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {(Array.isArray(content.commitments) ? content.commitments : []).map((commitment, index) => (
             <article
               key={`${commitment.title}-${index}`}
-              className="group p-8 rounded-2xl bg-surface-container/60 border border-surface-container-highest hover:border-primary/40 hover:bg-surface-container transition-all duration-300"
+              className="group p-5 sm:p-8 rounded-2xl bg-surface-container/60 border border-surface-container-highest hover:border-primary/40 hover:bg-surface-container transition-all duration-300"
               style={{
                 opacity: commitmentVisible ? 1 : 0,
                 transform: commitmentVisible ? 'translateY(0)' : 'translateY(30px)',
