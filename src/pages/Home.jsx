@@ -525,18 +525,20 @@ export default function Home() {
                 transition: 'opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s',
               }}
             >
-              Impeccable.
+              Pristine Building Maintenance.
               <br />
               <span
-                className="text-primary italic"
+                className="text-primary italic font-[12px]"
                 style={{
                   opacity: heroVisible ? 1 : 0,
                   transform: heroVisible ? 'translateY(0)' : 'translateY(30px)',
                   transition: 'opacity 0.8s ease 0.55s, transform 0.8s ease 0.55s',
                   display: 'inline-block',
+                  fontSize: '30px',
+                  letterSpacing: '0.07em',
                 }}
               >
-                Quality. Pristine Spaces.
+                Quality Pristine Spaces.
               </span>
             </h1>
 
