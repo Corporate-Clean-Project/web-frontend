@@ -107,8 +107,8 @@ const defaultAboutContent = {
       description: 'Our team aims to respond to inquiries within 24 business hours. 24/7 emergency response is available for contracted clients.',
     },
   ],
-  commitmentFooter: 'Looking for a cleaning plan that works for your facility?',
-  commitmentCta: 'Discuss Your Cleaning Needs',
+  // commitmentFooter: 'Looking for a cleaning plan that works for your facility?',
+  // commitmentCta: 'Discuss Your Cleaning Needs',
   gallery: [],
 };
 
@@ -305,7 +305,7 @@ export default function About() {
             </article>
           ))}
         </div>
-        <div className="mt-10 pt-8 border-t border-surface-container-highest flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        {/* <div className="mt-10 pt-8 border-t border-surface-container-highest flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <p className="text-sm text-on-surface-variant">{content.commitmentFooter}</p>
           <Link
             to="/inquiries-and-quote"
@@ -314,10 +314,10 @@ export default function About() {
             {content.commitmentCta}
             <span aria-hidden="true" className="text-base">→</span>
           </Link>
-        </div>
+        </div> */}
       </section>
 
-      <section ref={portfolioRef} className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 w-full">
+      {/* <section ref={portfolioRef} className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 w-full">
         <div
           className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16"
           style={{
@@ -361,7 +361,7 @@ export default function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Featured Item */}
-          {displayPortfolioItems.filter((item) => item.featured).map((item) => (
+          {/* {displayPortfolioItems.filter((item) => item.featured).map((item) => (
             <div
               key={item.id}
               className="lg:col-span-3 group relative rounded-2xl overflow-hidden shadow-2xl min-h-[500px]"
@@ -402,10 +402,10 @@ export default function About() {
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
 
           {/* Grid Items */}
-          {displayPortfolioItems.filter((item) => !item.featured).map((item, i) => (
+          {/* {displayPortfolioItems.filter((item) => !item.featured).map((item, i) => (
             <div
               key={item.id}
               className="group relative rounded-2xl overflow-hidden shadow-xl min-h-[350px]"
@@ -441,7 +441,7 @@ export default function About() {
             </p>
           )}
         </div>
-      </section>
+      </section> */}
 
       <section ref={ctaRef} className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 w-full">
         <div

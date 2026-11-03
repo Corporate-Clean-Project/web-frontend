@@ -70,15 +70,21 @@ export default function Navbar() {
           )}
         </button>
 
-        {/* CTA Button */}
-        <NavLink
-          to="/inquiries-and-quote"
-          className="hidden lg:flex group relative px-8 py-3 rounded-full bg-primary text-on-primary text-xs font-bold tracking-[0.15em] uppercase hover:shadow-[0_0_25px_rgba(242,190,113,0.35)] hover:-translate-y-0.5 transition-all duration-500 overflow-hidden"
-        >
-          {/* Shine effect */}
-          <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12" />
-          <span className="relative z-10">Get a Quote</span>
-        </NavLink>
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="tel:+16047355763"
+            className="inline-flex items-center justify-center rounded-full border border-primary/60 px-5 py-3 text-xs font-bold tracking-[0.08em] text-on-surface transition-colors hover:bg-primary/10 hover:text-primary"
+          >
+            +1 (604) 735-5763
+          </a>
+          <NavLink
+            to="/inquiries-and-quote"
+            className="group relative px-8 py-3 rounded-full bg-primary text-on-primary text-xs font-bold tracking-[0.15em] uppercase hover:shadow-[0_0_25px_rgba(242,190,113,0.35)] hover:-translate-y-0.5 transition-all duration-500 overflow-hidden"
+          >
+            <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12" />
+            <span className="relative z-10">Get a Quote</span>
+          </NavLink>
+        </div>
       </div>
 
       {menuOpen && (
@@ -97,6 +103,12 @@ export default function Navbar() {
                 {item.label}
               </NavLink>
             ))}
+            <a
+              href="tel:+16047355763"
+              className="mt-2 inline-flex items-center justify-center rounded-full border border-primary/60 px-6 py-3 text-xs font-bold tracking-[0.08em] text-on-surface transition-colors hover:bg-primary/10 hover:text-primary"
+            >
+              +1 (604) 735-5763
+            </a>
             <NavLink
               to="/inquiries-and-quote"
               onClick={() => setMenuOpen(false)}
