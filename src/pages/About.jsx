@@ -454,7 +454,7 @@ export default function About() {
         >
           {/* Subtle Monogram Watermark Background */}
           <div className="absolute -right-10 -bottom-20 text-[20rem] font-display font-bold text-primary opacity-5 select-none pointer-events-none tracking-tighter leading-none">
-            TP
+            PBM
           </div>
 
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />

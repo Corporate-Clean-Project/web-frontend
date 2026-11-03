@@ -44,7 +44,7 @@ export default function SplashScreen() {
 
         {/* Inner static logo/icon */}
         <div className="text-primary font-display font-bold text-3xl tracking-tighter shadow-primary drop-shadow-[0_0_10px_rgba(242,190,113,0.5)]">
-          TP
+          PBM
         </div>
       </div>
 

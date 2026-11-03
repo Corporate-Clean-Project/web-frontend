@@ -18,7 +18,7 @@ export default function Navbar() {
         {/* Logo */}
         <NavLink to="/" onClick={() => setMenuOpen(false)} className="group flex items-center gap-2 min-w-0">
           <div className="w-8 h-8 flex items-center justify-center border border-primary/50 rounded-full group-hover:bg-primary/10 transition-colors duration-500">
-            <span className="font-display font-bold text-primary text-xs tracking-tighter">TP</span>
+            <span className="font-display font-bold text-primary text-xs tracking-tighter">PBM</span>
           </div>
           <span className="font-display text-base sm:text-lg uppercase tracking-[0.12em] sm:tracking-[0.2em] text-on-surface group-hover:text-primary transition-colors duration-500">
             Pristine
