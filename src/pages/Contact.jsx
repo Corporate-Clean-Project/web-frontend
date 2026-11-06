@@ -80,8 +80,8 @@ export default function Contact() {
           {status === 'success' ? (
             <div className="bg-[#101419] rounded-xl p-10 text-center space-y-3 border border-surface-container-highest flex-grow flex flex-col items-center justify-center">
               <h3 className="font-display text-3xl text-primary">Message Sent</h3>
-              <p className="text-sm text-on-surface-variant leading-relaxed">Thank you — our team will respond within 24 business hours.</p>
-              {notice && <p className="text-sm text-amber-400" role="status">{notice}</p>}
+              <p className="text-sm text-on-surface-variant leading-relaxed">Thank you - our team will respond within 24 business hours.</p>
+              {/* {notice && <p className="text-sm text-amber-400" role="status">{notice}</p>} */}
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 flex-grow flex flex-col">
